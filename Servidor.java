@@ -3,7 +3,7 @@
  *
  * Created on 17 de Maio de 2006, 11:27
  *
- * Servidor ECHO: fica em aguardo de solicitaÁ„o de algum cliente. Quando recebe
+ * Servidor ECHO: fica em aguardo de solicita√ß√£o de algum cliente. Quando recebe
  * simplesmente devolve a mensagem. Funcionamento: tiro unico
  */
 
@@ -17,14 +17,14 @@ public class Servidor {
             s = new DatagramSocket(6787); // cria um socket UDP
             byte[] buffer = new byte[1000];
             System.out.println("\n\n*** Servidor aguardando request");
-            // cria datagrama para recepcionar solicitaÁ„o do cliente
+            // cria datagrama para recepcionar solicita√ß√£o do cliente
             DatagramPacket req = new DatagramPacket(buffer, buffer.length);
             s.receive(req);
             System.out.println("*** Request recebido de: " + req.getAddress()+":"+req.getPort());
             
             // envia resposta
             
-            System.out.println("Questıes recebidas" + new String(req.getData(), 0, req.getLength()));
+            System.out.println("Quest√µes recebidas" + new String(req.getData(), 0, req.getLength()));
             
             String questoes = new String(req.getData(), 0, req.getLength());
      
@@ -56,7 +56,7 @@ public class Servidor {
        	            	 errado++;
 	              }
             }
-            else errado++;
+           
 
             String msg = new String(numero_questoes + ";" + certo + ";"+ errado);
             System.out.println(msg);
