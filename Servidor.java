@@ -8,6 +8,7 @@
  */
 
 import java.net.*;
+import java.io.*;import java.net.*;
 import java.io.*;
 
 public class Servidor {
@@ -39,8 +40,8 @@ public class Servidor {
             String numero_alternativas1 = cortada2[1];
             String respostas = cortada2[2];
             
-            char[] q = questionario.toCharArray();
-            char[] g = respostas.toCharArray();
+            char[] quest = questionario.toCharArray();
+            char[] respo = respostas.toCharArray();
            
             int certo = 0;
             int errado = 0;
@@ -49,14 +50,13 @@ public class Servidor {
             if (numero_questoes.equals(numero_questoes1)){
             	r = numero_alternativas.equals(numero_alternativas1);
             }if (r == true) {
-                	for (int c = 0; c<g.length; c++) {
-                		if (q[c] == g[c]) {
+                	for (int c = 0; c<respo.length; c++) {
+                		if (quest[c] == respo[c]) {
                 			certo++;
                 		}else 
        	            	 errado++;
 	              }
             }
-           
 
             String msg = new String(numero_questoes + ";" + certo + ";"+ errado);
             System.out.println(msg);
